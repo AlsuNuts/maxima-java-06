@@ -1,4 +1,6 @@
-package org.example;
+package org.example.model;
+
+import org.example.services.Repairable;
 
 public abstract class Transport implements Repairable {
     private String name;       //название транспорта
@@ -44,7 +46,7 @@ public abstract class Transport implements Repairable {
         isRepairing = repairing;
     }
 
-    abstract float getPrice(City city);
+    public abstract float getPrice(City city);
     @Override
     public void startRepair() {
         isRepairing = true;

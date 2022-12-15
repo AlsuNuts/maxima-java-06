@@ -1,4 +1,7 @@
-package org.example;
+package org.example.model;
+
+import org.example.model.City;
+import org.example.model.Transport;
 
 public class Ship extends Transport {
     public Ship(String name, int capacity, int speed, float costOfKm) {
