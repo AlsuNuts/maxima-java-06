@@ -13,16 +13,8 @@ import org.springframework.context.annotation.Scope;
 public class SpringConfig {
 
     @Bean("transportFactory")
+    @Scope("prototype") //указывает, что бин имеет определенную область действия
     public TransportFactory transportFactory(){
         return new TransportFactory();
-    }
-    @Bean
-    public Transport transport() {
-        return new Transport() { //idea так вывела (почему?)
-            @Override
-            public String name() {
-                return null;
-            }
-        };
     }
 }

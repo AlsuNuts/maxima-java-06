@@ -9,12 +9,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logistics {
     private Transport[] vehicles;
+    private TransportFactory transportFactory;
 
     @Autowired
-    public Logistics(Transport ... vehicles) {
+    public Logistics(Transport[] vehicles, TransportFactory transportFactory) {
         this.vehicles = vehicles;
-
+        this.transportFactory = transportFactory;
     }
+
+
+
 
     public Transport[] getVehicles() {
         return vehicles;
@@ -41,7 +45,8 @@ public class Logistics {
         return profitTransport;
     }
     public boolean isShippingAvailable(City city, Transport transport, int weight, int hours) {
-        return (!transport.isRepairing()) & (transport.getCapacity() >= weight) & (city.getDistanceKm() / transport.getSpeed() <= hours) & (transport.getPrice(city) != 0);
+        return (!transport.isRepairing()) & (transport.getCapacity() >= weight) &
+                (city.getDistanceKm() / transport.getSpeed() <= hours) & (transport.getPrice(city) != 0);
     }
 
 }

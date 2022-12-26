@@ -2,8 +2,8 @@ package org.example.services;
 
 import org.example.model.*;
 import org.springframework.stereotype.Component;
-
 public class TransportFactory {
+
     public Transport getTransport(City city, int weight, int hours){
         final String PLANE_NAME = "самолет";
         final float PLANE_COST_OF_KM = 58.9f;
